@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Dashboard Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        body {
+            overflow-x: hidden; /* Mencegah horizontal scroll */
+            background-color: #f8f9fa;
+        }
+
+        /* Styling untuk Halaman Login */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            max-width: 450px;
+            width: 100%;
+        }
+
+        /* Styling untuk Halaman Dashboard */
+        #dashboard-page {
+            display: flex;
+            width: 100%;
+        }
+
+        #sidebar-wrapper {
+            min-height: 100vh;
+            width: 250px;
+            background-color: #f8f9fa; /* Warna sidebar */
+            border-right: 1px solid #dee2e6;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #6c757d;
+        }
+
+        #sidebar-wrapper .list-group-item {
+            border: 0;
+            border-radius: 0;
+            color: #212529;
+        }
+        
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #0d6efd;
+            color: #fff;
+            border: 0;
+        }
+        
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #e9ecef;
+        }
+
+        #page-content-wrapper {
+            flex-grow: 1; /* Konten utama mengisi sisa ruang */
+            min-width: 0; /* Mencegah konten keluar dari layout */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="login-page" class="login-container">
+        <div class="card shadow-lg login-card">
+            <div class="card-body p-5">
+                <h3 class="card-title text-center mb-4">Admin Login</h3>
+                <form id="login-form">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="user@example.com" required>
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" value="password" required>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3">
+                <div class="small">My Bootstrap Site &copy; 2025</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dashboard-page" class="d-none">
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom">NAVIGATION</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item p-3 active" href="#!"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-bar-chart-fill me-2"></i>Reports</a>
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-gear-fill me-2"></i>Settings</a>
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-folder-fill me-2"></i>Files</a>
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-chat-dots-fill me-2"></i>Messages</a>
+            </div>
+            <div class="sidebar-heading border-bottom mt-4">SHORTCUTS</div>
+             <div class="list-group list-group-flush">
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-star-fill me-2"></i>Favorites</a>
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-calendar-event-fill me-2"></i>Calendar</a>
+                <a class="list-group-item p-3" href="#!"><i class="bi bi-bell-fill me-2"></i>Notifications</a>
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom">
+                <div class="container-fluid">
+                    <div class="navbar-brand">My Bootstrap Site</div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                        </ul>
+                        <button id="logout-button" class="btn btn-outline-light ms-lg-3">Logout</button>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container-fluid p-4">
+                <h1 class="mb-4">Welcome, User!</h1>
+                <div class="row">
+                    <div class="col-lg-4 mb-4"><div class="card h-100"><div class="card-body"><h5 class="card-title"><i class="bi bi-graph-up-arrow me-2"></i>Analytics</h5><p class="card-text">Track your website's traffic and performance in real-time.</p><a href="#" class="btn btn-outline-primary">View Details</a></div></div></div>
+                    <div class="col-lg-4 mb-4"><div class="card h-100"><div class="card-body"><h5 class="card-title"><i class="bi bi-briefcase-fill me-2"></i>Projects</h5><p class="card-text">Manage all your ongoing projects, assign team members, and set milestones.</p><a href="#" class="btn btn-outline-success">Open Projects</a></div></div></div>
+                    <div class="col-lg-4 mb-4"><div class="card h-100"><div class="card-body"><h5 class="card-title"><i class="bi bi-clock-history me-2"></i>Recent Activity</h5><p class="card-text">Keep up to date with your latest uploads, edits, and user activity logs.</p><a href="#" class="btn btn-outline-warning">See Activity</a></div></div></div>
+                </div>
+                <div class="card mb-4"><div class="card-header fw-bold">Main Article</div><div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duo pariatur, aliquid quod blanditiisinia. Curabitur vel elementum odio.</div></div>
+                <div class="card"><div class="card-header fw-bold">User Data</div><div class="card-body"><div class="table-responsive"><table class="table table-striped table-hover"><thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Email</th><th scope="col">Status</th></tr></thead><tbody><tr><th scope="row">1</th><td>John Doe</td><td>john@example.com</td><td><span class="badge bg-success">Active</span></td></tr><tr><th scope="row">2</th><td>Jane Smith</td><td>jane@example.com</td><td><span class="badge bg-secondary">Inactive</span></td></tr><tr><th scope="row">3</th><td>Michael Lee</td><td>mike@example.com</td><td><span class="badge bg-warning text-dark">Pending</span></td></tr></tbody></table></div></div></div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil elemen-elemen yang dibutuhkan
+            const loginPage = document.getElementById('login-page');
+            const dashboardPage = document.getElementById('dashboard-page');
+            const loginForm = document.getElementById('login-form');
+            const logoutButton = document.getElementById('logout-button');
+
+            // Cek jika pengguna sudah "login" sebelumnya (simulasi dengan localStorage)
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                loginPage.classList.add('d-none');
+                dashboardPage.classList.remove('d-none');
+                dashboardPage.classList.add('d-flex');
+            }
+
+            // Tambahkan event listener untuk form login
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah form dari submit sungguhan
+                
+                // Di sini Anda bisa menambahkan validasi username/password jika perlu
+                // Untuk sekarang, kita anggap login selalu berhasil
+                
+                // Simpan status login di sessionStorage
+                sessionStorage.setItem('isLoggedIn', 'true');
+                
+                // Sembunyikan halaman login
+                loginPage.classList.add('d-none');
+                
+                // Tampilkan halaman dashboard
+                dashboardPage.classList.remove('d-none');
+                // Pastikan layout flexbox-nya aktif
+                dashboardPage.classList.add('d-flex'); 
+            });
+
+            // Tambahkan event listener untuk tombol logout
+            logoutButton.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Hapus status login
+                sessionStorage.removeItem('isLoggedIn');
+
+                // Sembunyikan halaman dashboard
+                dashboardPage.classList.add('d-none');
+                dashboardPage.classList.remove('d-flex');
+
+                // Tampilkan kembali halaman login
+                loginPage.classList.remove('d-none');
+            });
+        });
+    </script>
+</body>
+</html>
